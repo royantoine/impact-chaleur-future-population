@@ -2,7 +2,7 @@
 
 ### Contexte
 
-Projet pour étudier l'impact des aléas climatiques futurs sur les populations vulnérables, réalisé dans le cadre du Hackathon de Meteo France (03/10/2025) 
+Projet pour étudier l'impact des aléas climatiques futurs sur les populations vulnérables, réalisé dans le cadre du Hackathon de Meteo France (02/12/2025-04/12/2025) 
 
 ### Equipe
 
