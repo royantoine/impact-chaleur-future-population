@@ -1,6 +1,10 @@
 # Description du project
-### Equipe
 
+### Contexte
+
+Projet pour étudier l'impact des aléas climatiques futurs sur les populations vulnérables, réalisé dans le cadre du Hackathon de Meteo France (03/10/2025) 
+
+### Equipe
 
 - Pauline Allée – Data / Economiste ([Observatoire de l'énergie et des GES de Nouvelle-Aquitaine](https://oreges.arec-nouvelleaquitaine.com/))
 - Denis Vannier – Cartographe / Data Journaliste ([RésO Villes](https://resovilles.com/))
