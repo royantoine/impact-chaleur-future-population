@@ -1,4 +1,12 @@
 # Description du project
+### Equipe
+
+
+- Pauline Allée – Data / Economiste ([Observatoire de l'énergie et des GES de Nouvelle-Aquitaine](https://oreges.arec-nouvelleaquitaine.com/))
+- Denis Vannier – Cartographe / Data Journaliste ([RésO Villes](https://resovilles.com/))
+- Antoine Roy – Data Scientist ([Human Adaptation Insitute](https://adaptation-institute.com/))
+- Adrien Salem-Sermanet – Data Scientist ([celest.science](https://www.celest.science/))
+- Marc Le Moing – Data Scientist ([Agence d'Urbanisme des Pyrénées Atlantiques](https://www.audap.org/))
 
 ### Objectif du projet et problématique résolue
 Identifier le niveau d'exposition aux risques climatiques (vagues de chaleurs, nuits tropicales, vagues de nuits tropicales) auxquels seront affectés les populations vulnérables selon leur localisation à horizon 2030 et 2050 (TRACC)
