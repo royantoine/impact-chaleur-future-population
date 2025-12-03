@@ -35,7 +35,15 @@ Liste des indicateurs :
 -	**Nombre annuel de jours de vague de chaleur** ('sc_[scenario]_n_heatwaves_days_min20_max35'): Nombre total de jours se trouvant dans une vague de chaleur dans l’année, une vague de chaleur est défini comme une suite d’au moins 3 jours avec une température minimale supérieure à 20°C et une température maximale de 35°C
 -	**Nombre annuel de jours de vagues de nuits tropicales** ('sc_[scenario]_n_heatwaves_days_min20'): Nombre total de jours se trouvant dans une vague de nuits tropicales dans l’année, une vague de nuits tropicales est défini comme une suite d’au moins 3 jours avec une température minimale supérieure à 20°C
 -	**Nombre annuel de jours de vague de chaleur v0** ('sc_[scenario]_n_heatwaves_days_max35') : Nombre total de jours se trouvant dans une vague de chaleur dans l’année, une vague de chaleur est défini comme une suite d’au moins 3 jours avec une température maximale de 35°C
-	
+
+Les seuils de 20°C pour la température minimale et 35°C pour la température maximale ont été choisis en accord avec les méthodologie du DRIAS pour décrire le climat futur de la France selon la TRACC ([source](https://www.drias-climat.fr/accompagnement/sections/402)). Ce sont ces seuils qui sont utilisés pour calculer les jours caniculaires et les nuits tropicales.
+
+Météo France définit ces niveaux de risques canicules en se basant à la fois sur la température minimale et la maximale ([source](https://meteofrance.com/comprendre-la-meteo/temperatures/vigilance-canicule)).
+
+### Limites des indicateurs et améliorations potentielles
+
+Une piste d'amélioration pourrait être l'utilisation de seuil régionalisé pour considérer les jours caniculaires et les nuits tropicales.
+
 ### output
 
 Les données sont présentées dans un fichier csv où les lignes représentent les observations pour une coordonnée donnée. En colonne, sont disponibles les 4 indicateurs mentionnés ci-dessus pour chaque scénario (aujourd’hui, +2°C et +2,7°C)
