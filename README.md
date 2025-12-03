@@ -24,12 +24,17 @@ Utilisation en politique de ville (par les collectivités locales) pour identifi
 
 # Données socio démo
 
+Les données socio démographiques sont traitées dans le notebook suivant: projections_demog.ipynb
+
+
+### Données
+
 Données démographiques — INSEE : https://www.insee.fr/fr/statistiques/6652134
-- Projections 2018–2070 par département
-- Données carroyées (1 km²) pour la distribution spatiale fine.
+- Projections Omphale 2018–2070 par département [source](https://www.insee.fr/fr/statistiques/6652134?sommaire=6652140)
+- Données carroyées (1 km²) pour la distribution spatiale fine. [source](https://www.insee.fr/fr/statistiques/8272002)
 - Variables utilisées : population totale, personnes âgées.
 
-### Pistes d'amliorations
+### Pistes d'améliorations
 
 De plus, un croisement possible avec des données WorldPop pour affiner la répartition infra-urbaine à l’aide des données IRIS a été envisagé mais non intégré par manque de temps. Les données sont rendues disponibles sur le repo iris_pop2050_SSP3.zip.
 
