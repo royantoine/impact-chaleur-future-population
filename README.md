@@ -24,6 +24,16 @@ Utilisation en politique de ville (par les collectivités locales) pour identifi
 
 # Données socio démo
 
+Données démographiques — INSEE : https://www.insee.fr/fr/statistiques/6652134
+- Projections 2018–2070 par département
+- Données carroyées (1 km²) pour la distribution spatiale fine.
+- Variables utilisées : population totale, personnes âgées.
+
+### Pistes d'amliorations
+
+De plus, un croisement possible avec des données WorldPop pour affiner la répartition infra-urbaine à l’aide des données IRIS a été envisagé mais non intégré par manque de temps. Les données sont rendues disponibles sur le repo iris_pop2050_SSP3.zip.
+
+
 # Données climatiques 
 Données produites par le notebook Climate_data_analysis.ipynb
 
