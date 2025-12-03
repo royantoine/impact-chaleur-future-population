@@ -42,7 +42,7 @@ Météo France définit ces niveaux de risques canicules en se basant à la fois
 
 ### Limites des indicateurs et améliorations potentielles
 
-Une piste d'amélioration pourrait être l'utilisation de seuil régionalisé pour considérer les jours caniculaires et les nuits tropicales.
+Une piste d'amélioration pourrait être l'utilisation de seuil régionalisé pour considérer les jours caniculaires et les nuits tropicales selon le contexte local.
 
 ### output
 
