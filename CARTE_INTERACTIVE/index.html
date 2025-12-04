@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Populations et changement climatique - Hackathon Météo France</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+<script>
+var _paq = window._paq = window._paq || [];
+ /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+ _paq.push(['trackPageView']);
+ _paq.push(['enableLinkTracking']);
+ (function() {
+   var u="//leplan.studio/analytics/";
+   _paq.push(['setTrackerUrl', u+'matomo.php']);
+   _paq.push(['setSiteId', '1']);
+   var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+   g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+ })();
+ </script>
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <div id="map"></div>
+
+        <div class="liste-couches">
+            <h3>Le risque d'exposition aux vagues de chaleurs à l'horizon 2050 pour les habitants âgés</h3>
+           
+            <div id="lien_65P_2050" >
+                <h4>Population âgée en 2050, impactée par un réchauffement de +2.7°C<div id="oeil_65P_2050" style="font-size: 18px"><i class="far fa-thin fa-eye" style="color:#D38D31; font-weight: 800"></i></div></h4>
+            </div>
+            
+            <div id="lien_65P_today" >               
+                <h4>Situation démographique et climatique actuelle<div id="oeil_65P_today" style="font-size: 18px"><i class="far fa-thin fa-eye-slash"></i></div></h4>
+            </div>
+    
+            
+
+            <div id="legende">
+            <h4><span style="color:#9b9b9b">Légende</span></br>
+            <span style="color:#5d5d5d">Nombre de jours de vagues de chaleurs par an</span></h4>
+            <div id="legende_square" style="background-color: #730000"></div>  Plus de 60 jours</br>
+            <div id="legende_square" style="background-color: #e10000"></div></br>
+            <div id="legende_square" style="background-color: #ee9f00"></div></br>
+            <div id="legende_square" style="background-color: #ebe970"></div></br>
+            <div id="legende_square" style="background-color: #00a2c7"></div></br>
+            <div id="legende_square" style="background-color: #006bd7"></div>  Moins de 5 jours</br></br>
+
+            <span style="color:#6e6e6e">La surface des cercles </br>est proportionnelle à la population </br>âgée de 65 ans et plus.</span>
+            </br></br></br></br>
+            <span style="color:#a3a3a3; font-size: 11px"><u>Sources</u> : Météo France / Insee (Données carroyées Filosofi 2019 et modèle Omphale) </span>
+            
+            </div>
+        </div>
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
