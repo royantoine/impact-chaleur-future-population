@@ -33,8 +33,6 @@ Données démographiques — INSEE : https://www.insee.fr/fr/statistiques/665213
 - Projections Omphale 2018–2070 par département [source](https://www.insee.fr/fr/statistiques/6652134?sommaire=6652140)
 - Données carroyées (1 km²) pour la distribution spatiale fine. [source](https://www.insee.fr/fr/statistiques/8272002)
 - Variables utilisées : population totale, personnes âgées.
-
-Les fichiers de sortie, utilisés pour la carte interactive, sont disponibles au téléchargement au format geojson [ici en version complète](https://leplan.studio/wip/test2_hackathon_MF/full/DATA/points1km_projDemog_Climat_v3.geojson) (200Mo), et [là en version allégée](https://leplan.studio/wip/test2_hackathon_MF/DATA/points1km_projDemog_Climat_v4.geojson) (28Mo, limitée au secteurs comptant plus de 70 personnes de 65 ans et plus au km2 en 2050)
   
 
 ### Pistes d'améliorations
@@ -76,4 +74,6 @@ Une piste d'amélioration pourrait être l'utilisation de seuil régionalisé po
 
 ### output
 
-Les données sont présentées dans un fichier csv où les lignes représentent les observations pour une coordonnée donnée. En colonne, sont disponibles les 4 indicateurs mentionnés ci-dessus pour chaque scénario (aujourd’hui, +2°C et +2,7°C)
+Les données sont présentées dans un fichier csv où les lignes représentent les observations pour une coordonnée donnée. En colonne, sont disponibles les 4 indicateurs mentionnés ci-dessus pour chaque scénario (aujourd’hui, +2°C et +2,7°C).
+
+Les fichiers de sortie utilisés pour la carte interactive sont disponibles au téléchargement au format geojson [ici en version complète](https://leplan.studio/wip/test2_hackathon_MF/full/DATA/points1km_projDemog_Climat_v3.geojson) (200Mo), et [là en version allégée](https://leplan.studio/wip/test2_hackathon_MF/DATA/points1km_projDemog_Climat_v4.geojson) (28Mo, limitée au secteurs comptant plus de 70 personnes de 65 ans et plus au km2 en 2050)
