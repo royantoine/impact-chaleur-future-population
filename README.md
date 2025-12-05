@@ -34,6 +34,9 @@ Données démographiques — INSEE : https://www.insee.fr/fr/statistiques/665213
 - Données carroyées (1 km²) pour la distribution spatiale fine. [source](https://www.insee.fr/fr/statistiques/8272002)
 - Variables utilisées : population totale, personnes âgées.
 
+Les fichiers de sortie, utilisés pour la carte interactive, sont disponibles au téléchargement au format geojson [ici en version complète](https://leplan.studio/wip/test2_hackathon_MF/full/DATA/points1km_projDemog_Climat_v3.geojson) (200Mo), et [là en version allégée](https://leplan.studio/wip/test2_hackathon_MF/DATA/points1km_projDemog_Climat_v4.geojson) (28Mo, limitée au secteurs comptant plus de 70 personnes de 65 ans et plus au km2 en 2050)
+  
+
 ### Pistes d'améliorations
 
 De plus, un croisement possible avec des données WorldPop pour affiner la répartition infra-urbaine à l’aide des données IRIS a été envisagé mais non intégré par manque de temps. Les données sont rendues disponibles sur le repo iris_pop2050_SSP3.zip.
