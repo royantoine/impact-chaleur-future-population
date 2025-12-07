@@ -5,23 +5,23 @@
     <meta charset="utf-8" />
     <title>Populations et changement climatique - Hackathon Météo France</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <script src="https://unpkg.com/maplibre-gl@^5.6.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@^5.6.0/dist/maplibre-gl.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="style.css">
-<script>
-var _paq = window._paq = window._paq || [];
- /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
- _paq.push(['trackPageView']);
- _paq.push(['enableLinkTracking']);
- (function() {
-   var u="//leplan.studio/analytics/";
-   _paq.push(['setTrackerUrl', u+'matomo.php']);
-   _paq.push(['setSiteId', '1']);
-   var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-   g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
- })();
- </script>
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "//leplan.studio/analytics/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
 </head>
 
 <body>
@@ -47,21 +47,22 @@ var _paq = window._paq = window._paq || [];
 
              <div id="legende">
 
-                <h4>
-                    <span style="font-size: 1.1em; font-weight: 700; color:#9b9b9b">Légende</span></br></br>
-                    <span style="font-size: 1em; font-weight: 700;color:#404040">Nb de jours de vagues </br>de chaleurs par an</span></br></br>
-                </h4>
+                <span style="font-size: 1.1em; font-weight: 700; color:#9b9b9b">Légende</span></br></br>
+                <span style="font-size: 1em; font-weight: 700;color:#404040">Nb de jours de vagues </br>de chaleurs par
+                    an</span></br></br>
 
-                <div id="legende_square" style="background-color: #730000"></div>  Plus de 40 jours</br>
+
+                <div id="legende_square" style="background-color: #730000"></div> Plus de 40 jours</br>
                 <div id="legende_square" style="background-color: #e10000"></div> 31 à 40</br>
-                <div id="legende_square" style="background-color: #ee9f00"></div>  21 à 30</br>
-                <div id="legende_square" style="background-color: #ebe970"></div>  11 à 20</br>
-                <div id="legende_square" style="background-color: #00a2c7"></div>  5 à 10</br>
-                <div id="legende_square" style="background-color: #006bd7"></div>  Moins de 5
+                <div id="legende_square" style="background-color: #ee9f00"></div> 21 à 30</br>
+                <div id="legende_square" style="background-color: #ebe970"></div> 11 à 20</br>
+                <div id="legende_square" style="background-color: #00a2c7"></div> 5 à 10</br>
+                <div id="legende_square" style="background-color: #006bd7"></div> Moins de 5
                 </br></br>
 
-                <span style="color:#404040; font-size: 11px">La surface des cercles </br>est proportionnelle à la population </br>âgée de 65 ans et plus.</span>
-            
+                <span style="color:#404040; font-size: 11px">Surface des cercles </br>proportionnelle à la population
+                    </br>âgée de 65 ans et plus.</span>
+
             </div>
 
             
@@ -83,7 +84,6 @@ var _paq = window._paq = window._paq || [];
 
         </div>
     </div>
-
 
     <script src="main.js"></script>
 </body>
