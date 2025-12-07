@@ -5,23 +5,23 @@
     <meta charset="utf-8" />
     <title>Populations et changement climatique - Hackathon Météo France</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <script src="https://unpkg.com/maplibre-gl@^5.6.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@^5.6.0/dist/maplibre-gl.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="style.css">
-<script>
-var _paq = window._paq = window._paq || [];
- /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
- _paq.push(['trackPageView']);
- _paq.push(['enableLinkTracking']);
- (function() {
-   var u="//leplan.studio/analytics/";
-   _paq.push(['setTrackerUrl', u+'matomo.php']);
-   _paq.push(['setSiteId', '1']);
-   var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-   g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
- })();
- </script>
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "//leplan.studio/analytics/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
 </head>
 
 <body>
@@ -31,51 +31,68 @@ var _paq = window._paq = window._paq || [];
         <div id="map"></div>
 
         <div class="liste-couches">
-            <h3>Le risque d'exposition</br> aux vagues de chaleurs</br> à l'horizon 2050</br> pour les habitants âgés</h3>
-           
+            <h3>Le risque d'exposition</br> aux vagues de chaleurs</br> à l'horizon 2050</br> pour les habitants âgés
+            </h3>
+
             <div id="lien_65P_2050">
-                <h4><a>Population âgée en 2050, impactée par un réchauffement de +2.7°C<div id="oeil_65P_2050" style="font-size: 18px"><i class="far fa-thin fa-eye" style="color:#D38D31; font-weight: 800"></i></div></a></h4>
+                <h4><a>Population âgée en 2050, impactée par un réchauffement de +2.7°C<div id="oeil_65P_2050"
+                            style="font-size: 18px"><i class="far fa-thin fa-eye"
+                                style="color:#D38D31; font-weight: 800"></i></div></a></h4>
             </div>
-            
-            <div id="lien_65P_today">               
-                <h4><a>Situation démographique et climatique actuelle<div id="oeil_65P_today" style="font-size: 18px"><i class="far fa-thin fa-eye-slash"></i></div></a></h4>
+
+            <div id="lien_65P_today">
+                <h4><a>Situation démographique et climatique actuelle<div id="oeil_65P_today" style="font-size: 18px"><i
+                                class="far fa-thin fa-eye-slash"></i></div></a></h4>
             </div>
-    
-            
+
+
 
             <div id="legende">
 
-                    <span style="font-size: 1.1em; font-weight: 700; color:#9b9b9b">Légende</span></br></br>
-                    <span style="font-size: 1em; font-weight: 700;color:#404040">Nb de jours de vagues </br>de chaleurs par an</span></br></br>
-                
+                <span style="font-size: 1.1em; font-weight: 700; color:#9b9b9b">Légende</span></br></br>
+                <span style="font-size: 1em; font-weight: 700;color:#404040">Nb de jours de vagues </br>de chaleurs par
+                    an</span></br></br>
 
-                <div id="legende_square" style="background-color: #730000"></div>  Plus de 40 jours</br>
+
+                <div id="legende_square" style="background-color: #730000"></div> Plus de 40 jours</br>
                 <div id="legende_square" style="background-color: #e10000"></div> 31 à 40</br>
-                <div id="legende_square" style="background-color: #ee9f00"></div>  21 à 30</br>
-                <div id="legende_square" style="background-color: #ebe970"></div>  11 à 20</br>
-                <div id="legende_square" style="background-color: #00a2c7"></div>  5 à 10</br>
-                <div id="legende_square" style="background-color: #006bd7"></div>  Moins de 5
+                <div id="legende_square" style="background-color: #ee9f00"></div> 21 à 30</br>
+                <div id="legende_square" style="background-color: #ebe970"></div> 11 à 20</br>
+                <div id="legende_square" style="background-color: #00a2c7"></div> 5 à 10</br>
+                <div id="legende_square" style="background-color: #006bd7"></div> Moins de 5
                 </br></br>
 
-                <span style="color:#404040; font-size: 11px">Surface des cercles </br>proportionnelle à la population </br>âgée de 65 ans et plus.</span>
-            
+                <span style="color:#404040; font-size: 11px">Surface des cercles </br>proportionnelle à la population
+                    </br>âgée de 65 ans et plus.</span>
+
             </div>
 
             </br>
 
-            <div id="credits">                
-                    <u>Sources</u> : Météo France (CPRCM) / Insee (Filosofi, Omphale) 
-                    </br></br>
-                    Projet initié en décembre 2025 par <a href="https://www.linkedin.com/in/pauline-all%C3%A9e/" target="blank">Pauline Allée</a> (AREC Nouvelle-Aquitaine), <a href="https://www.linkedin.com/in/denis-vannier-a5930173/" target="blank">Denis Vannier</a> (RésO Villes), <a href="https://www.linkedin.com/in/antoine-roy-6a5883100/" target="blank">Antoine Roy</a> (Human Adaptation Institute), <a href="https://www.linkedin.com/in/adrien-salem-sermanet/" target="blank">Adrien Salem-Sermanet</a> (celest.science) et <a href="https://www.linkedin.com/in/marc-le-moing-a21003201/" target="blank">Marc Le Moing</a> (AUDAP) dans le cadre du <a href="https://www.data.gouv.fr/posts/hackathon-le-climat-en-donnees-venez-explorer-de-nouvelles-donnees-de-projections-climatiques" target="blank">hackathon "Le climat en données"</a> organisé par Météo France et datagouv.
-                    </br></br>
-                    <i>Pour alléger l'affichage, cette carte se limite aux secteurs qui compteront plus de 70 personnes au km2.
-                    La carte complète est consultable <a href="https://leplan.studio/wip/test2_hackathon_MF/full/" target="blank">ici</a>.</i>                
-                </br>           
+            <div id="credits">
+                <u>Sources</u> : Météo France (CPRCM) / Insee (Filosofi, Omphale)
+                </br></br>
+                Projet initié en décembre 2025 par <a href="https://www.linkedin.com/in/pauline-all%C3%A9e/"
+                    target="blank">Pauline Allée</a> (AREC Nouvelle-Aquitaine), <a
+                    href="https://www.linkedin.com/in/denis-vannier-a5930173/" target="blank">Denis Vannier</a> (RésO
+                Villes), <a href="https://www.linkedin.com/in/antoine-roy-6a5883100/" target="blank">Antoine Roy</a>
+                (Human Adaptation Institute), <a href="https://www.linkedin.com/in/adrien-salem-sermanet/"
+                    target="blank">Adrien Salem-Sermanet</a> (celest.science) et <a
+                    href="https://www.linkedin.com/in/marc-le-moing-a21003201/" target="blank">Marc Le Moing</a> (AUDAP)
+                dans le cadre du <a
+                    href="https://www.data.gouv.fr/posts/hackathon-le-climat-en-donnees-venez-explorer-de-nouvelles-donnees-de-projections-climatiques"
+                    target="blank">hackathon "Le climat en données"</a> organisé par Météo France et datagouv.
+                </br></br>
+                <i>Pour alléger l'affichage, cette carte se limite aux secteurs qui compteront plus de 70 personnes au
+                    km2.
+                    La carte complète est consultable <a href="https://leplan.studio/wip/test2_hackathon_MF/full/"
+                        target="blank">ici</a>.</i>
+                </br>
             </div>
 
-            </br> 
+            </br>
             <a href="https://hackaton-mf-defi2-icu-xpkqbvnjcbszzp2yzgavl3.streamlit.app/">Accueil du projet</a>
-            </br> 
+            </br>
 
         </div>
     </div>
