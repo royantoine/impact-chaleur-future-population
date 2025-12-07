@@ -1,10 +1,10 @@
 
 // Appel du fond de carte
-mapboxgl.accessToken = 'pk.eyJ1IjoibGVwbGFuc3R1ZGlvIiwiYSI6ImNsdWNnMTRpNDEzeXoyanFuOGdxbm1kOXIifQ.bGLWHO7ce0M37dJCnJ0s3w';
+// mapboxgl.accessToken = 'pk.eyJ1IjoibGVwbGFuc3R1ZGlvIiwiYSI6ImNsdWNnMTRpNDEzeXoyanFuOGdxbm1kOXIifQ.bGLWHO7ce0M37dJCnJ0s3w';
 const bounds = [[-10, 36], [15, 56]];
-const map = new mapboxgl.Map({
+const map = new maplibregl.Map({
     container: 'map',
-    style: 'mapbox://styles/leplanstudio/cmipzcx7k00ng01sbenbha21p',
+    style: "https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json",
     center: [2, 46.3],
     zoom: 5.1,
     minZoom: 5.5,
@@ -12,16 +12,24 @@ const map = new mapboxgl.Map({
     maxBounds: bounds,
 });
 
+
 // Début des couches
 map.on('load', () => {
 
-    // ############# COUCHE demog-climat  ##################################################
+    const nav = new maplibregl.NavigationControl({
+        visualizePitch: true,
+        visualizeRoll: true,
+        showZoom: true,
+        showCompass: true,
+    });
+    map.addControl(nav, 'top-right');
+
     map.addSource('demog-climat', {
         type: 'geojson',
         data: 'DATA/points1km_projDemog_Climat_v3.geojson'
     });
 
-     map.addLayer({
+    map.addLayer({
         'id': '65P_2050',
         'type': 'circle',
         'source': 'demog-climat',
@@ -29,31 +37,30 @@ map.on('load', () => {
         'paint': {
             'circle-opacity': 0.9,
             'circle-color': [
-                        'interpolate',
-                    ['exponential', 2], // Set the interpolation type
-                    ['get','sc_27_n_heatwaves_days_min20_max35'],
-                    1,
-                    '#006bd7',
-                    5,
-                    '#00a2c7',
-                    10,
-                    '#eeea00',
-                    20,
-                    '#ee4b00',
-                    30,
-                    '#e10000',
-                    40,
-                    '#730000'
-                    ],           
-            'circle-radius':[
-        "interpolate", ["linear"], ["zoom"],
-        5.5, ['/', ['sqrt', ['/', ['get', 'S1_pop65p_2050'], 3.14]], 12],
-        10,  ['/', ['sqrt', ['/', ['get', 'S1_pop65p_2050'], 3.14]], 3]
-    ]
+                'interpolate',
+                ['exponential', 2],
+                ['get', 'sc_27_n_heatwaves_days_min20_max35'],
+                1,
+                '#006bd7',
+                5,
+                '#00a2c7',
+                10,
+                '#eeea00',
+                20,
+                '#ee4b00',
+                30,
+                '#e10000',
+                40,
+                '#730000'
+            ],
+            'circle-radius': [
+                "interpolate", ["linear"], ["zoom"],
+                5.5, ['/', ['sqrt', ['/', ['get', 'S1_pop65p_2050'], 3.14]], 12],
+                10, ['/', ['sqrt', ['/', ['get', 'S1_pop65p_2050'], 3.14]], 3]
+            ]
         }
     });
 
-     
     map.addLayer({
         'id': '65P_today',
         'type': 'circle',
@@ -62,37 +69,34 @@ map.on('load', () => {
         'paint': {
             'circle-opacity': 0,
             'circle-color': [
-                        'interpolate',
-                    ['exponential', 2],
-                    ['get','sc_today_n_heatwaves_days_min20_max35'],
-                    1,
-                    '#006bd7',
-                    5,
-                    '#00a2c7',
-                    10,
-                    '#eeea00',
-                    20,
-                    '#ee4b00',
-                    30,
-                    '#e10000',
-                    40,
-                    '#730000'
-                    ],           
+                'interpolate',
+                ['exponential', 2],
+                ['get', 'sc_today_n_heatwaves_days_min20_max35'],
+                1,
+                '#006bd7',
+                5,
+                '#00a2c7',
+                10,
+                '#eeea00',
+                20,
+                '#ee4b00',
+                30,
+                '#e10000',
+                40,
+                '#730000'
+            ],
             'circle-radius': [
-        "interpolate", ["linear"], ["zoom"],
-        5.5, ['/', ['sqrt', ['/', ['get', 'S1_pop65p_2050'], 3.14]], 12],
-        10,  ['/', ['sqrt', ['/', ['get', 'S1_pop65p_2050'], 3.14]], 3]
-    ]
+                "interpolate", ["linear"], ["zoom"],
+                5.5, ['/', ['sqrt', ['/', ['get', 'S1_pop65p_2050'], 3.14]], 12],
+                10, ['/', ['sqrt', ['/', ['get', 'S1_pop65p_2050'], 3.14]], 3]
+            ]
         }
     });
-   
-    // Fin des couches 
+
 });
 
-// ##########################################################################################
 // ########## Affichage des couches au clic sur la liste 
-
-// ########## Affichage 65P_today ################################################
+// Affichage 65P_today
 document.getElementById('lien_65P_today').addEventListener('click', () => {
     const circleOpacity = map.getPaintProperty('65P_today', 'circle-opacity');
     if (circleOpacity === 0) {
@@ -104,7 +108,7 @@ document.getElementById('lien_65P_today').addEventListener('click', () => {
     };
 });
 
-// ########## Affichage 65P_2050 ################################################
+// Affichage 65P_2050
 document.getElementById('lien_65P_2050').addEventListener('click', () => {
     const circleOpacity = map.getPaintProperty('65P_2050', 'circle-opacity');
     if (circleOpacity === 0) {
@@ -116,37 +120,38 @@ document.getElementById('lien_65P_2050').addEventListener('click', () => {
     };
 });
 
-//////////////////////////////////////////////////////        
 ///////////  POPUP  //////////////////////////////////
-const popup = new mapboxgl.Popup({
-                    closeButton: false,
-                    closeOnClick: false
-                });
+const popup = new maplibregl.Popup({
+    closeButton: false,
+    closeOnClick: false
+});
 
-        let Idcarreau = null;
+let Idcarreau = null;
 
-    
-        map.on('mousemove', ("65P_2050"), (e) => {
-                    map.getCanvas().style.cursor = 'pointer';
-                    if (Idcarreau) {
-                        map.removeFeatureState({ source: 'demog-climat', id: Idcarreau });
-                    }
-                    Idcarreau = e.features[0].id;
-                    map.setFeatureState({ source: 'demog-climat', id: Idcarreau }, { hover: true });
-                    // Contenu de la popup
-                    const EPCI = e.features[0].properties.NOM_EPCI;
-                    const DEP = e.features[0].properties.NOM_DEP;
-                    const DEMOG = e.features[0].properties.texte_demog;
-                    const CLIMAT = e.features[0].properties.texte_climat;
 
-                    popup.setLngLat(e.lngLat).setHTML(DEMOG+'</br>'+CLIMAT+'</br><span style="color:#a3a3a3; font-size: 11px">(EPCI : '+EPCI+' - Département : '+DEP+')</i>'
-                    ).addTo(map);
-            });
-        map.on('mouseleave', ("65P_2050"), () => {  
-            if (Idcarreau) {
-                map.setFeatureState({ source: 'demog-climat', id: Idcarreau }, { hover: false });
-            }
-            Idcarreau = null;
-            map.getCanvas().style.cursor = '';
-            popup.remove();
-        });
+map.on('mousemove', ("65P_2050"), (e) => {
+    map.getCanvas().style.cursor = 'pointer';
+    if (Idcarreau) {
+        map.removeFeatureState({ source: 'demog-climat', id: Idcarreau });
+    }
+    Idcarreau = e.features[0].id;
+    map.setFeatureState({ source: 'demog-climat', id: Idcarreau }, { hover: true });
+    // Contenu de la popup
+    const EPCI = e.features[0].properties.NOM_EPCI;
+    const DEP = e.features[0].properties.NOM_DEP;
+    const DEMOG = e.features[0].properties.texte_demog;
+    const CLIMAT = e.features[0].properties.texte_climat;
+
+    popup.setLngLat(e.lngLat).setHTML('<span style="font-size: 15px;font-weight: 600;">' + DEMOG + '</br>' + CLIMAT + '</span></br><span style="color:#a3a3a3; font-size: 11px">(EPCI : ' + EPCI + ' - Département : ' + DEP + ')</i>'
+    ).addTo(map);
+});
+map.on('mouseleave', ("65P_2050"), () => {
+    if (Idcarreau) {
+        map.setFeatureState({ source: 'demog-climat', id: Idcarreau }, { hover: false });
+    }
+    Idcarreau = null;
+    map.getCanvas().style.cursor = '';
+    popup.remove();
+});
+
+
